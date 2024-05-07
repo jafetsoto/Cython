@@ -1,6 +1,6 @@
 // --------------------------------------------------------
 // ------------------------Headers:------------------------ 
-#include <Python.h>
+//#include <Python.h>
 #include "CYTHON_CODE.h"                            // Generado por Cython.
 #include <stdio.h>
 #include <string.h>
@@ -14,10 +14,10 @@ int main() {
     Py_Initialize();
 
     // Añadir el directorio actual al sys.path para asegurarse de que el módulo pueda ser encontrado
-    PyObject *sysPath = PySys_GetObject("path");
-    PyObject *path = PyUnicode_FromString(".");
-    PyList_Append(sysPath, path);
-    Py_DECREF(path);
+    // PyObject *sysPath = PySys_GetObject("path");
+    // PyObject *path = PyUnicode_FromString(".");
+    // PyList_Append(sysPath, path);
+    // Py_DECREF(path);
 
     // Solicitar datos al usuario
     char name[100];
@@ -49,6 +49,7 @@ int main() {
                 PyErr_Print();
             }
             Py_DECREF(pFunc);
+            
         } else {
             if (PyErr_Occurred()) PyErr_Print();
         }
